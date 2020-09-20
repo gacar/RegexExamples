@@ -6,8 +6,8 @@ masking letters other than the first letter Luke Skywalker ⇒ L*** S********
   (?<=[a-zA-Z])[a-z+]
 ```
 //name and surname: Luke Skywalker
-    String result = nameSurname.replaceAll("(?<=[a-zA-Z])[a-z+]","*");
-    System.out.println("Masked Name: " + result);
+String result = nameSurname.replaceAll("(?<=[a-zA-Z])[a-z+]","*");
+System.out.println("Masked Name: " + result);
 //Masked Name: L*** S********
 ```
 alternative way Luke Skywalker ⇒ L*** S********
@@ -15,7 +15,7 @@ alternative way Luke Skywalker ⇒ L*** S********
 (?<=\w)\w
 
 ```
-result = nameSurname.replaceAll("(?<=\\w)\\w","*");
+String result = nameSurname.replaceAll("(?<=\\w)\\w","*");
 System.out.println("Masked Name alternative way: " + result);
 //Masked Name alternative way: L*** S********
 ```
@@ -35,8 +35,8 @@ masking identity number 12345678901 ⇒ 1*********
 ```
 String identitiyNo ="12345678901";
 result  = identitiyNo.replaceAll("(?<=\\w)\\w","*");
-        System.out.println("Masked Identity: " + result);
-        //Masked Identity: 1**********
+System.out.println("Masked Identity: " + result);
+//Masked Identity: 1**********
 ```
 
 mask identity but not first and last 12345678901 ⇒ 1********1
@@ -60,6 +60,7 @@ System.out.println("Masked email: " + result);
 
 mask email 
 ```     
+String email = "foo@bar.com";
 System.out.println("foo@bar.com ⇒ f*o@b*r.com");
 result = email.replaceAll("(?<=.)[^@](?=[^@]*?[^@]@)|(?:(?<=@.)|(?!^)\\G(?=[^@]*$)).(?=.*[^@]\\.)", "*");
 System.out.println("Masked email: " + result);
