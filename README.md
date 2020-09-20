@@ -1,7 +1,7 @@
 # RegexExamples
 java regex example usages
 
-masking letters other than the first letter
+masking letters other than the first letter Luke Skywalker ⇒ L*** S********
   
   (?<=[a-zA-Z])[a-z+]
 ```
@@ -10,7 +10,7 @@ masking letters other than the first letter
     System.out.println("Masked Name: " + result);
 //Masked Name: L*** S********
 ```
-alternative way 
+alternative way Luke Skywalker ⇒ L*** S********
 
 (?<=\w)\w
 
@@ -20,7 +20,7 @@ System.out.println("Masked Name alternative way: " + result);
 //Masked Name alternative way: L*** S********
 ```
 
-masking without giving length information
+masking without giving length information Luke Skywalker ⇒ L***** S*****
 
 (?<=\w)\w+
 ```
@@ -29,19 +29,21 @@ System.out.println("Masked Name: " + result);
 //Masked Name: L***** S*****
 ```
 
-masking identity number
+masking identity number 12345678901 ⇒ 1*********
 
 (?<=\\w)\\w
 ```
+String identitiyNo ="12345678901";
 result  = identitiyNo.replaceAll("(?<=\\w)\\w","*");
         System.out.println("Masked Identity: " + result);
         //Masked Identity: 1**********
 ```
 
-mask identity but not first and last
+mask identity but not first and last 12345678901 ⇒ 1********1
 
 (?<=\\w)(\\w{9})
 ```
+String identitiyNo ="12345678901";
 result  = identitiyNo.replaceAll("(?<=\\w)(\\w{9})","*********");
 System.out.println("Masked Identity: " + result);
 //Masked Identity: 1*********1
